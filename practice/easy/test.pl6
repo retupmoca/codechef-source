@@ -1,8 +1,14 @@
 use v6;
 
-while my $num = get() {
-    if $num == 42 {
+my @data = slurp().split(/\n/);
+
+my $out = '';
+
+for @data -> $x {
+    if $x == 42 {
+        print $out;
         exit();
     }
-    say $num;
+    $out ~= $x~"\n";
 }
+print $out;
